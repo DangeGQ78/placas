@@ -46,7 +46,7 @@ def procesar_imagen(ruta_imagen):
     contornos, _ = cv2.findContours(umbral, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
     contornos = sorted(contornos, key=lambda x: cv2.contourArea(x), reverse=True)
-
+    print("asad")
     for contorno in contornos:
         area = cv2.contourArea(contorno)
         if area > 1000 and area < 10000:
