@@ -14,7 +14,7 @@ def procesar_imagen(ruta_imagen):
     pty.pytesseract.tesseract_cmd = 'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
 
     frame = cv2.imread(ruta_imagen)
-
+    
     # Resto del código...
      
 
@@ -49,7 +49,7 @@ def procesar_imagen(ruta_imagen):
     print("asad")
     for contorno in contornos:
         area = cv2.contourArea(contorno)
-        if area > 1000 and area < 10000:
+        if area > 2000 and area < 14000:
             
             x, y, ancho, alto = cv2.boundingRect(contorno)
 
@@ -97,6 +97,7 @@ def procesar_imagen(ruta_imagen):
 
     # Mostrar la imagen procesada en un widget Label
     imagen_procesada = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
+    imagen_procesada = imagen_procesada.resize((400, 400), Image.ADAPTIVE)
     imagen_procesada = ImageTk.PhotoImage(imagen_procesada)
     imagen_procesada_label.config(image=imagen_procesada)
     imagen_procesada_label.image = imagen_procesada
